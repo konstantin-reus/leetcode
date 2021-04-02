@@ -1,4 +1,4 @@
 /.idea/*
 /leetcode.iml
 /out/*
-/src/com/reus/test/*
+src/com/reus/test/*
