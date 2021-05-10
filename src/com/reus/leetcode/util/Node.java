@@ -12,4 +12,8 @@ public class Node {
         this.next = next;
         this.child = child;
     }
+
+    public Node(int val) {
+        this.val = val;
+    }
 }
