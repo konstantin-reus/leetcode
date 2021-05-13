@@ -11,18 +11,18 @@ public class RomanToInteger {
 
     static {
         romanToInt.put("I", 1);
-        romanToInt.put("V", 5);
-        romanToInt.put("X", 10);
-        romanToInt.put("L", 50);
-        romanToInt.put("C", 100);
-        romanToInt.put("D", 500);
-        romanToInt.put("M", 1000);
         romanToInt.put("IV", 4);
+        romanToInt.put("V", 5);
         romanToInt.put("IX", 9);
+        romanToInt.put("X", 10);
         romanToInt.put("XL", 40);
+        romanToInt.put("L", 50);
         romanToInt.put("XC", 90);
+        romanToInt.put("C", 100);
         romanToInt.put("CD", 400);
+        romanToInt.put("D", 500);
         romanToInt.put("CM", 900);
+        romanToInt.put("M", 1000);
 
     }
 
