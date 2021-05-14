@@ -12,48 +12,29 @@ public class ThreeSum {
         if (nums.length == 0) {
             return new ArrayList<>();
         }
+        Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
-        int[] sorted = Arrays.copyOf(nums, nums.length);
-        Arrays.sort(sorted);
-        for (int i = 0; i < sorted.length; i++) {
-            if (sorted[i] > 0) {
-                break;
-            }
-            if (i - 1 >= 0 && sorted[i] == sorted[i - 1]) {
+        for (int i = 0; i < nums.length; i++) {
+            if (i - 1 >= 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            int sumToFind = 0 - sorted[i];
-            List<List<Integer>> allTripletsWithCur = findTwoSumZero(sorted[i], sumToFind, i + 1, sorted);
-            result.addAll(allTripletsWithCur);
-        }
-        return result;
-    }
-
-    private List<List<Integer>> findTwoSumZero(int curNum, int sumToFind, int from, int[] sortedNums) {
-        if (sortedNums.length == 0) {
-            return null;
-        }
-        int left = from;
-        int right = sortedNums.length - 1;
-        List<List<Integer>> result = new ArrayList<>();
-        while (left < right) {
-
-            int curSum = sortedNums[left] + sortedNums[right];
-            if (curSum == sumToFind) {
-                List<Integer> l = new ArrayList<>();
-                l.add(curNum);
-                l.add(sortedNums[left]);
-                l.add(sortedNums[right]);
-                result.add(l);
-                left++;
-                right--;
-                while (left < right && left >= 0 && sortedNums[left - 1] == sortedNums[left]) {
+            int sumToFind = 0 - nums[i];
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                int curSum = nums[left] + nums[right];
+                if (curSum < sumToFind) {
                     left++;
+                } else if (curSum > sumToFind) {
+                    right--;
+                } else {
+                    result.add(List.of(nums[i], nums[left], nums[right]));
+                    left++;
+                    right--;
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
                 }
-            } else if (curSum > sumToFind) {
-                right--;
-            } else {
-                left++;
             }
         }
         return result;
