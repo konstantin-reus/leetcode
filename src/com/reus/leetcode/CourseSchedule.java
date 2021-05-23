@@ -1,4 +1,4 @@
-package com.reus.leetcode.util;
+package com.reus.leetcode;
 
 import java.util.*;
 
