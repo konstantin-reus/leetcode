@@ -1,4 +1,4 @@
-package com.reus;
+package com.reus.leetcode;
 
 import com.reus.leetcode.util.Trie;
 
