@@ -14,19 +14,20 @@ class UniqueEmailAddresses {
             localName = localName.replace(".", "")
             val domain = email.split('@')[1]
             uniqueEmails.add(localName + '@' + domain)
+
         }
         return uniqueEmails.size
     }
 }
 
 fun main() {
-    println(
+    require(
         UniqueEmailAddresses().numUniqueEmails(
             arrayOf(
                 "test.email+alex@leetcode.com",
                 "test.e.mail+bob.cathy@leetcode.com",
                 "testemail+david@lee.tcode.com"
             )
-        )
+        ) == 2
     )
 }
